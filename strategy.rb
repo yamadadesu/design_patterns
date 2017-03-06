@@ -16,12 +16,20 @@ end
 class HTMLFormatter
     def output_report(context)
         puts self.class.to_s
+        puts context.title
+        context.text.each do |line|
+            puts line
+        end
     end
 end
 
 class PlainTextFormatter
     def output_report(context)
         puts self.class.to_s
+        puts context.title
+        context.text.each do |line|
+            puts line
+        end
     end
 end
 
