@@ -13,6 +13,22 @@ class Report
     end
 end
 
+HTML_FORMATTER = lambda do |ctx|
+    puts "html"
+end
+
+PLAIN_TEXT_FORMATTER = lambda do |ctx|
+    puts "plain"
+end
+
+report = Report.new(&HTML_FORMATTER)
+report.output_report
+
+report.formatter = PLAIN_TEXT_FORMATTER
+report.output_report
+
+=begin
+#これだとstrategyっぽくない
 html = Report.new do |ctx|
     puts "html"
     puts ctx.title
@@ -28,7 +44,8 @@ plain = Report.new do |ctx|
         puts line
     end
 end
+=end
 
-html.output_report
-plain.output_report
+#html.output_report
+#plain.output_report
 
